@@ -191,16 +191,6 @@ router.get('/getAll', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
-    const id = req.params.id;
-    try {
-        const user = await User.findOne({_id: id}, 'fullName email type favoritedJobs'); // Adjust fields as needed
-        res.status(200).json({message: "Retrieve user success", user});
-    } catch (error) {
-        res.status(500).json({ message: "Error retrieving users", error });
-    }
-});
-
 
 // Upload Image Endpoint
 router.post('/uploadImage', upload.single('image'), async (req, res) => {
