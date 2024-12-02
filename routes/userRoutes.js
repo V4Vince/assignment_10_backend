@@ -184,7 +184,7 @@ router.delete('/delete', async (req, res) => {
 // Retrieve All Users
 router.get('/getAll', async (req, res) => {
     try {
-        const users = await User.find({}, 'fullName email type'); // Adjust fields as needed
+        const users = await User.find({}, 'fullName email type favoritedJobs'); // Adjust fields as needed
         res.status(200).json(users);
     } catch (error) {
         res.status(500).json({ message: "Error retrieving users", error });
